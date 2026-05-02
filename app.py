@@ -508,7 +508,7 @@ if RUN:
     # -----------------------------
     def yearly_from_monthly(monthly_ret: pd.Series) -> pd.Series:
         r = monthly_ret.dropna()
-        yr = r.resample("Y").apply(lambda x: (1 + x).prod() - 1)
+        yr = r.resample("YE").apply(lambda x: (1 + x).prod() - 1)
         yr.index = yr.index.year
         return yr
 
